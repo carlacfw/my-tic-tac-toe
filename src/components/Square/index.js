@@ -4,10 +4,9 @@ import styled from 'styled-components'
 const StyledSquare = styled.div`
   border-color: #00e6e6;
   border-style: solid;
-  border-width: 0 ${props => (props.index % 3 === 2 ? 0 : '2px')}
-    ${props => (props.index < 6 ? '2px' : 0)} 0;
-  color: ${props =>
-    props.player === 'x' ? 'hsla(24, 100%, 50%)' : 'hsla(336, 100%, 50%)'};
+  border-width: 0 ${({ index }) => (index % 3 === 2 ? 0 : '2px')}
+    ${({ index }) => (index < 6 ? '2px' : 0)} 0;
+  color: ${({ player }) => (player === 'x' ? '#ff0066' : '#ff3300')};
   font-size: 16vh;
   font-weight: bold;
   line-height: 20vh;

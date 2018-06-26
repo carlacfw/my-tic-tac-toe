@@ -4,8 +4,9 @@ const Board = styled.div`
   align-self: center;
   display: grid;
   grid-area: board;
-
-  color: #ff6600;
+  border-color: #00e6e6;
+  border-style: solid;
+  border-width: 2px;
   grid-gap: 0;
   grid-template-areas: 'zero one two' 'three four five' 'six seven eight';
   grid-template-columns: 20vh 20vh 20vh;

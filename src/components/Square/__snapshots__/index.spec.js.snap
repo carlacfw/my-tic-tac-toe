@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components:Square renders the Square with the proper styles for player O in the top left square 1`] = `
+exports[`components:Square renders the Square with the proper cursor if a click handler is provided 1`] = `
 .c0 {
   border-color: #00e6e6;
   border-style: solid;
   border-width: 0 2px 2px 0;
   color: #ff3300;
+  cursor: pointer;
   font-size: 16vh;
   font-weight: bold;
   line-height: 20vh;
@@ -15,9 +16,8 @@ exports[`components:Square renders the Square with the proper styles for player 
 
 <div
   className="c0"
->
-  o
-</div>
+  onClick={[Function]}
+/>
 `;
 
 exports[`components:Square renders the Square with the proper styles for player X in the bottom left square 1`] = `
@@ -26,6 +26,7 @@ exports[`components:Square renders the Square with the proper styles for player 
   border-style: solid;
   border-width: 0 2px 0 0;
   color: #ff0066;
+  cursor: default;
   font-size: 16vh;
   font-weight: bold;
   line-height: 20vh;
@@ -46,6 +47,7 @@ exports[`components:Square renders the Square with the proper styles for player 
   border-style: solid;
   border-width: 0 0 0 0;
   color: #ff0066;
+  cursor: default;
   font-size: 16vh;
   font-weight: bold;
   line-height: 20vh;
@@ -66,6 +68,7 @@ exports[`components:Square renders the Square with the proper styles for player 
   border-style: solid;
   border-width: 0 2px 2px 0;
   color: #ff0066;
+  cursor: default;
   font-size: 16vh;
   font-weight: bold;
   line-height: 20vh;
@@ -86,6 +89,7 @@ exports[`components:Square renders the Square with the proper styles for player 
   border-style: solid;
   border-width: 0 0 2px 0;
   color: #ff0066;
+  cursor: default;
   font-size: 16vh;
   font-weight: bold;
   line-height: 20vh;

@@ -20,24 +20,41 @@ describe('containers:Square', () => {
       })
     )
   })
-})
-it(`maps handleClick to dispatch ${SQUARE_CLICKED} action`, () => {
-  const square = 4
-  const store = mockStore(initialState)
 
-  store.dispatch = jest.fn()
+  it(`maps state properly to props when the game is over`, () => {
+    const square = 4
+    const store = mockStore({
+      moves: [0, 1, 4, 5, 8],
+      winningSquares: [0, 4, 8],
+      winningPlayer: 'x'
+    })
+    const wrapper = shallow(<Square index={square} store={store} />)
 
-  const wrapper = shallow(<Square index={square} store={store} />)
+    expect(wrapper.props()).toEqual(
+      expect.objectContaining({
+        isWinningSquare: true
+      })
+    )
+  })
 
-  wrapper
-    .dive()
-    .props()
-    .onClick()
+  it(`maps handleClick to dispatch ${SQUARE_CLICKED} action`, () => {
+    const square = 4
+    const store = mockStore(initialState)
 
-  expect(store.dispatch).toHaveBeenCalledWith({
-    type: SQUARE_CLICKED,
-    payload: {
-      square
-    }
+    store.dispatch = jest.fn()
+
+    const wrapper = shallow(<Square index={square} store={store} />)
+
+    wrapper
+      .dive()
+      .props()
+      .onClick()
+
+    expect(store.dispatch).toHaveBeenCalledWith({
+      type: SQUARE_CLICKED,
+      payload: {
+        square
+      }
+    })
   })
 })

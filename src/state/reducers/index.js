@@ -6,6 +6,7 @@ const initialState = { moves: [] }
 
 function rootReducer (state = initialState, { payload = {}, type }) {
   const { square, winners: { squares, player } = {} } = payload
+
   switch (type) {
     case GAME_OVER:
       return {
@@ -16,9 +17,7 @@ function rootReducer (state = initialState, { payload = {}, type }) {
     case SQUARE_CLICKED:
       return {
         ...state,
-        moves: isUndefined(payload.square)
-          ? state.moves
-          : [...state.moves, payload.square]
+        moves: isUndefined(square) ? state.moves : [...state.moves, square]
       }
     default:
       return state

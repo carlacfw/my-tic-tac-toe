@@ -25,9 +25,9 @@ export default function checkForWinEpic (action$, state$) {
 
       return Observable.of(gameOver(squares, player))
     }
-
     if (plays > 8) {
-      return Observable.of(gameOver([]))
+      return Observable.of(gameOver([22]))
+      // gameOver array can't be empty, if empty it doesn't fire the <squareLost> function on component/Square/index.js
     }
 
     return Observable.of()

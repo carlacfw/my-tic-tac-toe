@@ -13,6 +13,8 @@ const Board = styled.div`
   justify-self: center;
   margin: auto;
   width: 60vh;
+  border: 2px solid #f5f5ef;
+  box-shadow: 5px 10px 5px #00e6e6;
 `
 Board.displayName = 'Board'
 

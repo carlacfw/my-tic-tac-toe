@@ -7,22 +7,57 @@ const StyledSquare = styled.div`
   border-style: solid;
   border-width: 0 ${({ index }) => (index % 3 === 2 ? 0 : '2px')}
     ${({ index }) => (index < 6 ? '2px' : 0)} 0;
-  color: ${({ player }) => (player === 'x' ? '#ff0066' : '#ff3300')};
-  cursor: ${({ onClick }) => (isUndefined(onClick) ? 'default' : 'pointer')};
+  cursor: default;
   font-size: 16vh;
   font-weight: bold;
   line-height: 20vh;
   text-align: center;
   text-transform: uppercase;
 `
-StyledSquare.displayName = 'StyledSquare'
+StyledSquare.defaultName = 'StyledSquare'
 
-export default function Square ({ handleClick, index, player }) {
-  return isUndefined(player) ? (
-    <StyledSquare index={index} onClick={handleClick} />
-  ) : (
-    <StyledSquare index={index} player={player}>
+const SquarePlayed = StyledSquare.extend`
+  color: ${({ player }) => (player === 'x' ? '#ff0066' : '#ff3300')};
+`
+SquarePlayed.defaultName = 'SquarePlayed'
+
+const SquareLost = StyledSquare.extend`
+  color: hsla(0, 0%, 90%, 1);
+`
+SquareLost.defaultName = 'SquareLost'
+
+const SquarePlayable = StyledSquare.extend`
+  cursor: pointer;
+`
+SquarePlayable.defaultName = 'SquarePlayable'
+
+export default function Square ({
+  handleClick,
+  index,
+  isWinningSquare,
+  player
+}) {
+  if (isUndefined(isWinningSquare)) {
+    return isUndefined(player) ? (
+      <SquarePlayable index={index} onClick={handleClick} />
+    ) : (
+      <SquarePlayed index={index} player={player}>
+        {player}
+      </SquarePlayed>
+    )
+  }
+
+  if (isUndefined(player)) {
+    return <StyledSquare index={index} />
+  }
+
+  return isWinningSquare ? (
+    <SquarePlayed index={index} player={player}>
       {player}
-    </StyledSquare>
+    </SquarePlayed>
+  ) : (
+    <SquareLost index={index} player={player}>
+      {player}
+    </SquareLost>
   )
 }

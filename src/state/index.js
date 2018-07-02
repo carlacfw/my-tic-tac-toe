@@ -1,7 +1,7 @@
 import { GAME_OVER, SQUARE_CLICKED } from './constants'
 import { gameOver, squareClicked } from './actions'
 import { initialState, rootReducer } from './reducers'
-import { getMoves } from './selectors'
+import { getMoves, getWinningPlayer, getWinningSquares } from './selectors'
 import configureStore from './store'
 
 export {
@@ -9,6 +9,8 @@ export {
   gameOver,
   GAME_OVER,
   getMoves,
+  getWinningPlayer,
+  getWinningSquares,
   initialState,
   rootReducer,
   SQUARE_CLICKED,

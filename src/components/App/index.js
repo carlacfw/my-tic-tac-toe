@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { times } from 'ramda'
 
-import { Board } from '..'
+import { Board, Header } from '..'
 import { Square } from '../../containers'
 
 /* The times function takes a function and an integer n,
@@ -15,18 +15,21 @@ const StyledApp = styled.div`
   display: grid;
   font-family: 'Verdana', sans-serif;
   grid-template-areas: 'board';
-  height: 100vh;
-  margin: 0;
+  height: 80vh;
+  margin: auto;
   padding: 0;
-  width: 100vw;
+  width: 80vw;
 `
 
 export default function App () {
   return (
-    <StyledApp>
-      <Board>
-        {times(square => <Square key={square} index={square} />, 9)}
-      </Board>
-    </StyledApp>
+    <div>
+      <Header />
+      <StyledApp>
+        <Board>
+          {times(square => <Square key={square} index={square} />, 9)}
+        </Board>
+      </StyledApp>
+    </div>
   )
 }

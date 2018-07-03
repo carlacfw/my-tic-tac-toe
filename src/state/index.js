@@ -1,5 +1,5 @@
-import { GAME_OVER, SQUARE_CLICKED } from './constants'
-import { gameOver, squareClicked } from './actions'
+import { GAME_OVER, SQUARE_CLICKED, RESET_CLICKED } from './constants'
+import { gameOver, squareClicked, resetClicked } from './actions'
 import { initialState, rootReducer } from './reducers'
 import { getMoves, getWinningPlayer, getWinningSquares } from './selectors'
 import configureStore from './store'
@@ -14,5 +14,7 @@ export {
   initialState,
   rootReducer,
   SQUARE_CLICKED,
-  squareClicked
+  squareClicked,
+  resetClicked,
+  RESET_CLICKED
 }

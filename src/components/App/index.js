@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { times } from 'ramda'
 
-import { Board, Header } from '..'
-import { Square } from '../../containers'
+import { Board, Header, StyledButtonContainer } from '..'
+import { Square, ResetButton } from '../../containers'
 
 /* The times function takes a function and an integer n,
  and returns an array of length n in which each item is created by calling the function
@@ -30,6 +30,9 @@ export default function App () {
           {times(square => <Square key={square} index={square} />, 9)}
         </Board>
       </StyledApp>
+      <StyledButtonContainer>
+        <ResetButton />
+      </StyledButtonContainer>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { GAME_OVER, SQUARE_CLICKED } from '..'
+import { GAME_OVER, SQUARE_CLICKED, RESET_CLICKED } from '..'
 
 function gameOver (squares, player) {
   return {
@@ -20,4 +20,9 @@ function squareClicked (square) {
     }
   }
 }
-export { gameOver, squareClicked }
+function resetClicked () {
+  return {
+    type: RESET_CLICKED
+  }
+}
+export { gameOver, squareClicked, resetClicked }
